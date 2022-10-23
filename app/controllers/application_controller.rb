@@ -2,9 +2,11 @@ class ApplicationController < ActionController::Base
   helper_method :current_user, :logged_in?
 
   def authenticate_user!
+    
+    debugger
     unless current_user
       redirect_to login_path, alert: 'Are you a Guru? Verify your Email and Password please'
-      cookies[:path] = '/5b2685e8e672ae7f0b313dc85261b9e5'
+      request.routes = cookies[:path]
     end
   end
 
