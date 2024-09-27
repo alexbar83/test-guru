@@ -1,15 +1,12 @@
 class Answer < ApplicationRecord
-  MAX_ANSWERS_COUNT = 4
-
   belongs_to :question
 
   validates :body, presence: true
-  validate :answers_count, on: :create
+  validate :answers_1_4_size_validation
 
-  scope :correct, -> { where(correct: true) } 
+  scope :correct, -> { where(correct: true) }
 
-  def answers_count
-    message = 'exceeded maximum number of answers to the question'
-    errors.add(:question, message) if question.answers.count >= MAX_ANSWERS_COUNT
+  def answers_1_4_size_validation
+    errors.add(:question, 'too many answers') unless question.answers.count < 4
   end
 end
