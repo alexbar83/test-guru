@@ -1,5 +1,5 @@
 class GitHubClient
-  ACCESS_TOKEN = "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"
+  
   ROOT_ENDPOINT = 'https://api.github.com'
 
   def initialize
