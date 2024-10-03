@@ -1,12 +1,16 @@
-<h1>Tests list</h1>
+<div class="row justify-content-center mt-3">
+  <h1><%= t('.header') %></h1>
+</div>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Questions</th>
-    <th>Levels</th>
-    <th >Actions</th>
-  </tr>
+<table class="table">
+  <thead>
+    <th><%= t('.title') %></th>
+    <th><%= t('.questions') %></th>
+    <th><%= t('.level') %></th>
+    <th ><%= t('.actions') %></th>
+  </thead>
 
-  <%= render @tests %>
-</table> 
+  <tbody>
+    <%= render @tests %>
+  </tbody>
+</table>
