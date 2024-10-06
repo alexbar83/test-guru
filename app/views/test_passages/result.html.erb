@@ -1,8 +1,10 @@
 <div class="row justify-content-center mt-3">
   <div class="col col-md-6">
-    <h1 class="<%= set_result_color(@test_passage) %>">
-      <%= t('.header', title: @test_passage.test.title) %>
-      <%= show_result_message(@test_passage)%></h1><br>
+    <%= render 'progress_bar' %>
+    <h1 class="<%= result_color(@test_passing) %>">
+      <%= t('test_passings.result.time_failed') if @test_passing.time_out? %> 
+      <%= t('.header', title: @test_passing.test.title) %>
+      <%= show_result_message(@test_passing)%></h1><br>
     <h2><%= link_to t('.back'), tests_path %></h2>
-   </div>
-</div>
+  </div>
+</div> 
